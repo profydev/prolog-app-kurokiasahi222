@@ -5,11 +5,10 @@ env:
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 on:
   push:
-      branches:
+    branches:
       - main
 
 jobs:
-  Deploy-Production:
   install:
     runs-on: ubuntu-latest
 
