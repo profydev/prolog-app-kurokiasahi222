@@ -30,3 +30,9 @@
   width: space.$s6;
   margin-right: space.$s3;
 }
+
+.iconCollapsed {
+  width: space.$s6;
+  margin-right: space.$s3;
+  transform: scaleX(-1);
+}
