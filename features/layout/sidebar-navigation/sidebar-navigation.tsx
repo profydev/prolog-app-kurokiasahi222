@@ -5,6 +5,7 @@ import classNames from "classnames";
 import { NavigationContext } from "./navigation-context";
 import { MenuItemButton } from "./menu-item-button";
 import { MenuItemLink } from "./menu-item-link";
+import openMailApp from "./open-mail-app";
 import { Button } from "@features/ui";
 import styles from "./sidebar-navigation.module.scss";
 
@@ -83,7 +84,8 @@ export function SidebarNavigation() {
               text="Support"
               iconSrc="/icons/support.svg"
               isCollapsed={isSidebarCollapsed}
-              onClick={() => alert("Support")}
+              //  fix in fix-navigation-support-button
+              onClick={() => openMailApp()}
             />
             <MenuItemButton
               text="Collapse"
