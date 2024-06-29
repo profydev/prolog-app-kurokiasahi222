@@ -8,7 +8,6 @@ import { MenuItemLink } from "./menu-item-link";
 import openMailApp from "./open-mail-app";
 import { Button } from "@features/ui";
 import styles from "./sidebar-navigation.module.scss";
-
 const menuItems = [
   { text: "Projects", iconSrc: "/icons/projects.svg", href: Routes.projects },
   { text: "Issues", iconSrc: "/icons/issues.svg", href: Routes.issues },
@@ -21,6 +20,7 @@ export function SidebarNavigation() {
   const router = useRouter();
   const { isSidebarCollapsed, toggleSidebar } = useContext(NavigationContext);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <div
       className={classNames(
@@ -36,6 +36,7 @@ export function SidebarNavigation() {
       >
         <header className={styles.header}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
+          {/* image for desktop / disappear when in mobile view*/}
           <img
             src={
               isSidebarCollapsed
@@ -44,6 +45,12 @@ export function SidebarNavigation() {
             }
             alt="logo"
             className={styles.logo}
+          />
+          {/* image for mobile / disappear when in desktop view*/}
+          <img
+            src={"/icons/logo-large.svg"}
+            alt="logo"
+            className={styles.logoMobile}
           />
           <Button
             onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
