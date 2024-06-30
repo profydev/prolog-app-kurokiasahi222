@@ -1,5 +1,6 @@
 import capitalize from "lodash/capitalize";
 import mockProjects from "../fixtures/projects.json";
+import { port } from "../e2e/port";
 
 describe("Project List", () => {
   beforeEach(() => {
@@ -9,7 +10,7 @@ describe("Project List", () => {
     }).as("getProjects");
 
     // open projects page
-    cy.visit("http://localhost:3000/dashboard");
+    cy.visit(`http://localhost:${port}/dashboard`);
 
     // wait for request to resolve
     cy.wait("@getProjects");

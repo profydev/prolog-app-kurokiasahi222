@@ -1,6 +1,8 @@
+import { port } from "../e2e/port";
+
 describe("Sidebar Navigation", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:3000/dashboard");
+    cy.visit(`http://localhost:${port}/dashboard`);
   });
 
   context("desktop resolution", () => {
@@ -37,7 +39,7 @@ describe("Sidebar Navigation", () => {
 
       // check that links still exist and are functionable
       cy.get("nav").find("a").should("have.length", 5).eq(1).click();
-      cy.url().should("eq", "http://localhost:3000/dashboard/issues");
+      cy.url().should("eq", `http://localhost:${port}/dashboard/issues`);
 
       // check that text is not rendered
       cy.get("nav").contains("Issues").should("not.exist");
