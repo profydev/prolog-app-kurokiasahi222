@@ -1,6 +1,7 @@
 import mockIssues1 from "../fixtures/issues-page-1.json";
 import mockIssues2 from "../fixtures/issues-page-2.json";
 import mockIssues3 from "../fixtures/issues-page-3.json";
+import { port } from "../e2e/port";
 
 describe("Issue List", () => {
   beforeEach(() => {
@@ -19,7 +20,7 @@ describe("Issue List", () => {
     }).as("getIssuesPage3");
 
     // open issues page
-    cy.visit(`http://localhost:3000/dashboard/issues`);
+    cy.visit(`http://localhost:${port}/dashboard/issues`);
 
     // wait for request to resolve
     cy.wait(["@getProjects", "@getIssuesPage1"]);
@@ -45,6 +46,8 @@ describe("Issue List", () => {
           cy.wrap($el).contains(issue.name);
           cy.wrap($el).contains(issue.message);
           cy.wrap($el).contains(issue.numEvents);
+          // adding test for fix-issue-list-number-of-events-and-users
+          cy.wrap($el).contains(issue.numUsers);
           cy.wrap($el).contains(firstLineOfStackTrace);
         });
     });
