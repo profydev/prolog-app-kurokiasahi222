@@ -25,7 +25,7 @@ Default.args = {
   size: ButtonSize.sm,
   color: ButtonColor.primary,
   state: ButtonState.default,
-  children: "Label",
+  children: "Button CTA",
 };
 Default.parameters = {
   viewMode: "docs",

@@ -16,7 +16,7 @@ export enum ButtonColor {
   empty = "empty",
   emptyGray = "empty-gray",
   error = "error",
-  emptyError = "empty-erorr",
+  emptyError = "empty-error",
 }
 
 export enum ButtonState {
