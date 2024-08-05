@@ -1,30 +1,31 @@
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
-import { Badge, BadgeSize, BadgeColor } from "./badge";
+import { Button, ButtonSize, ButtonColor, ButtonState } from "./button";
 
 export default {
-  title: "UI/Badge",
-  component: Badge,
+  title: "UI/Button",
+  component: Button,
   tags: ["autodocs"],
   parameters: {
     // More on Story layout: https://storybook.js.org/docs/react/configure/story-layout
     layout: "fullscreen",
   },
-} as Meta<typeof Badge>;
+} as Meta<typeof Button>;
 
-const Template: StoryFn<typeof Badge> = ({ size, color, children }) => (
+const Template: StoryFn<typeof Button> = ({ size, color, state, children }) => (
   <div style={{ padding: 50 }}>
-    <Badge color={color} size={size}>
+    <Button color={color} size={size} state={state}>
       {children}
-    </Badge>
+    </Button>
   </div>
 );
 
 export const Default = Template.bind({});
 Default.args = {
-  size: BadgeSize.sm,
-  color: BadgeColor.primary,
-  children: "Label",
+  size: ButtonSize.sm,
+  color: ButtonColor.primary,
+  state: ButtonState.default,
+  children: "Button CTA",
 };
 Default.parameters = {
   viewMode: "docs",

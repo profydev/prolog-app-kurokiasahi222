@@ -1,0 +1,34 @@
+
+> prolog-app@14.5.2 build-storybook
+> storybook build --output-dir /var/folders/sb/873k54ys2gb7vsfsg26nqk200000gn/T/chromatic--36301-LjNpdvK50S7p
+
+@storybook/cli v7.4.3
+
+info => Cleaning outputDir: /var/folders/sb/873k54ys2gb7vsfsg26nqk200000gn/T/chromatic--36301-LjNpdvK50S7p
+info => Loading presets
+info => Building manager..
+info => Manager built (297 ms)
+info => Compiling preview..
+info => Copying static files: /Users/asahikuroki222/Desktop/Project/Portfolio/Profy-dev/prolog-app-kurokiasahi222/node_modules/@storybook/manager/static at /var/folders/sb/873k54ys2gb7vsfsg26nqk200000gn/T/chromatic--36301-LjNpdvK50S7p/sb-common-assets
+info Addon-docs: using MDX2
+info => Using implicit CSS loaders
+info => Using default Webpack5 setup
+WARN No story files found for the specified pattern: **/*.stories.mdx
+info => Copying static files: /Users/asahikuroki222/Desktop/Project/Portfolio/Profy-dev/prolog-app-kurokiasahi222/public at /var/folders/sb/873k54ys2gb7vsfsg26nqk200000gn/T/chromatic--36301-LjNpdvK50S7p/
+info => Preview built (12 s)
+WARN DefinePlugin
+WARN Conflicting values for 'process.env.__NEXT_NEW_LINK_BEHAVIOR'
+WARN asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
+WARN This can impact web performance.
+WARN Assets: 
+WARN   535.2acd91e2.iframe.bundle.js (674 KiB)
+WARN   426.311c20e3.iframe.bundle.js (583 KiB)
+WARN   797.ccb966e8.iframe.bundle.js (898 KiB)
+WARN entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
+WARN Entrypoints:
+WARN   main (970 KiB)
+WARN       runtime~main.1db075ee.iframe.bundle.js
+WARN       797.ccb966e8.iframe.bundle.js
+WARN       main.89e78f4d.iframe.bundle.js
+WARN 
+info => Output directory: /var/folders/sb/873k54ys2gb7vsfsg26nqk200000gn/T/chromatic--36301-LjNpdvK50S7p

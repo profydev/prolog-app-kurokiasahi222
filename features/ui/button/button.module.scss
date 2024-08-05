@@ -1,3 +1,7 @@
+@use "@styles/color";
+@use "@styles/font";
+@use "@styles/space";
+
 .button {
   cursor: pointer;
 
@@ -14,5 +18,161 @@
   &::-moz-focus-inner {
     border: 0;
     padding: 0;
+  }
+}
+
+.container {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  border-radius: space.$s2;
+
+  &.sm {
+    padding: space.$s0 0.875rem;
+    height: 2.25rem;
+    font: font.$text-sm-medium;
+  }
+
+  &.md {
+    padding: space.$s0 space.$s4;
+    height: 2.5rem;
+    font: font.$text-sm-medium;
+  }
+
+  &.lg {
+    padding: space.$s0 1.125rem;
+    height: 2.75rem;
+    font: font.$text-md-medium;
+  }
+
+  &.xl {
+    padding: space.$s0 space.$s5;
+    height: 3rem;
+    font: font.$text-md-medium;
+  }
+
+  &.primary {
+    background: color.$primary-600;
+    color: #fff;
+
+    &.hover {
+      background: color.$primary-700;
+    }
+
+    &.focused {
+      /* Shadow/xs focused 4px primary-100 */
+      box-shadow:
+        0 1px 2px 0 rgb(16 24 40 / 5%),
+        0 0 0 4px #f4ebff;
+    }
+
+    &.disabled {
+      background: color.$primary-200;
+    }
+  }
+
+  &.secondary {
+    background: color.$primary-50;
+    color: color.$primary-700;
+
+    &.hover {
+      background: color.$primary-100;
+    }
+
+    &.focused {
+      border-radius: 0.5rem;
+      border: 1px solid color.$primary-50;
+      background: color.$primary-50;
+
+      /* Shadow/xs focused 4px primary-100 */
+      box-shadow:
+        0 1px 2px 0 rgb(16 24 40 / 5%),
+        0 0 0 4px #f4ebff;
+    }
+
+    &.disabled {
+      background: color.$primary-25;
+      color: color.$primary-300;
+    }
+  }
+
+  &.gray {
+    background-color: #fff;
+    border-radius: 0.5rem;
+    color: color.$gray-700;
+    border: 1px solid color.$gray-300;
+    box-shadow: 0 1px 2px 0 rgb(16 24 40 / 5%);
+
+    &.hover {
+      background-color: color.$gray-50;
+      color: color.$gray-800;
+    }
+
+    &.focused {
+      /* Shadow/xs focused 4px grey-100 */
+      box-shadow:
+        0 1px 2px 0 rgb(16 24 40 / 5%),
+        0 0 0 4px #f2f4f7;
+    }
+
+    &.disabled {
+      background: color.$gray-200;
+      color: color.$gray-300;
+    }
+  }
+
+  &.empty {
+    color: color.$primary-700;
+
+    &.hover {
+      background: color.$primary-50;
+    }
+
+    &.disabled {
+      color: color.$gray-300;
+    }
+  }
+
+  &.empty-gray {
+    color: color.$gray-500;
+
+    &.hover {
+      background: color.$gray-50;
+      color: color.$gray-600;
+    }
+
+    &.disabled {
+      color: color.$gray-300;
+    }
+  }
+
+  &.error {
+    background: color.$error-600;
+    color: #fff;
+
+    &.hover {
+      background: color.$error-700;
+    }
+
+    &.focused {
+      border-radius: 0.5rem;
+      border: 4px solid color.$error-100;
+    }
+
+    &.disabled {
+      background-color: color.$error-200;
+    }
+  }
+
+  &.empty-error {
+    color: color.$error-700;
+
+    &.hover {
+      background: color.$error-50;
+    }
+
+    &.disabled {
+      color: color.$error-300;
+    }
   }
 }

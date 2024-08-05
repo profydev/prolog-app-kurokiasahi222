@@ -34,7 +34,7 @@ yarn-error.log*
 
 # vercel
 .vercel
-
+vercel.json
 # typescript
 *.tsbuildinfo
 
@@ -45,3 +45,6 @@ yarn-error.log*
 
 # Cypress test videos
 cypress/videos/
+
+# storybook
+storybook-static
