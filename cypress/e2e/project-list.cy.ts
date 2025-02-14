@@ -33,7 +33,8 @@ describe("Project List", () => {
           cy.wrap($el).contains(languageNames[index]);
           cy.wrap($el).contains(mockProjects[index].numIssues);
           cy.wrap($el).contains(mockProjects[index].numEvents24h);
-          // cy.wrap($el).contains(capitalize(mockProjects[index].status));
+          // Added for Task 7: Project list doesn’t show correct status
+          // This makes sure that the status is displayed correctly
           cy.wrap($el).contains(statusNames[index]);
           cy.wrap($el)
             .find("a")
