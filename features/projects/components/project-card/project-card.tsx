@@ -22,6 +22,14 @@ const statusColors = {
   [ProjectStatus.critical]: BadgeColor.error,
 };
 
+type StatusNames = Record<string, ProjectStatus>;
+
+const statusNames: StatusNames = {
+  error: ProjectStatus.critical,
+  warning: ProjectStatus.warning,
+  info: ProjectStatus.stable,
+};
+
 export function ProjectCard({ project }: ProjectCardProps) {
   const { name, language, numIssues, numEvents24h, status } = project;
 
@@ -49,8 +57,16 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <div className={styles.issuesTitle}>Last 24h</div>
             <div className={styles.issuesNumber}>{numEvents24h}</div>
           </div>
+          {/* 
+          TODO: Project list doesn’t show correct status
+          branch: project-list-incorrect-status 
+          status = "error", "warning", "info"
+          change to status = "critical", "warning", "stable"
+          */}
           <div className={styles.status}>
-            <Badge color={statusColors[status]}>{capitalize(status)}</Badge>
+            <Badge color={statusColors[statusNames[status]]}>
+              {capitalize(statusNames[status])}
+            </Badge>
           </div>
         </div>
       </div>
