@@ -146,6 +146,10 @@
 .collapseMenuItem {
   display: none;
 
+  &.isCollapsed {
+    transform: scaleX(-1);
+  }
+
   @media (min-width: breakpoint.$desktop) {
     display: flex;
   }
