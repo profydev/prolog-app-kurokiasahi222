@@ -1,4 +1,4 @@
-import capitalize from "lodash/capitalize";
+// import capitalize from "lodash/capitalize";
 import mockProjects from "../fixtures/projects.json";
 import { port } from "../e2e/port";
 
@@ -23,7 +23,7 @@ describe("Project List", () => {
 
     it("renders the projects", () => {
       const languageNames = ["React", "Node.js", "Python"];
-
+      const statusNames = ["Critical", "Warning", "Stable"];
       // get all project cards
       cy.get("main")
         .find("li")
@@ -33,7 +33,9 @@ describe("Project List", () => {
           cy.wrap($el).contains(languageNames[index]);
           cy.wrap($el).contains(mockProjects[index].numIssues);
           cy.wrap($el).contains(mockProjects[index].numEvents24h);
-          cy.wrap($el).contains(capitalize(mockProjects[index].status));
+          // Added for Task 7: Project list doesn’t show correct status
+          // This makes sure that the status is displayed correctly
+          cy.wrap($el).contains(statusNames[index]);
           cy.wrap($el)
             .find("a")
             .should("have.attr", "href", "/dashboard/issues");
