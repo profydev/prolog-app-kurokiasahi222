@@ -1,4 +1,4 @@
-// import { ButtonHTMLAttributes } from "react";
+import { ButtonHTMLAttributes } from "react";
 import classNames from "classnames";
 import styles from "./button.module.scss";
 
@@ -32,14 +32,11 @@ export enum ButtonState {
 //   only = "only",
 // }
 
-type ButtonProps = {
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   children: React.ReactNode;
   size?: ButtonSize;
   color?: ButtonColor;
   state?: ButtonState;
-  className?: string;
-  onClick?: () => void;
-  // icon?: ButtonIcon;
 };
 
 export function Button({
@@ -49,20 +46,24 @@ export function Button({
   state = ButtonState.default,
   className,
   onClick,
+  disabled,
+  ...rest
 }: ButtonProps) {
   return (
-    <div
+    <button
       className={classNames(
-        styles.container,
+        styles.button,
         styles[size],
         styles[color],
         styles[state],
         className,
       )}
+      disabled={disabled}
       onClick={onClick}
+      {...rest}
     >
       {children}
-    </div>
+    </button>
   );
 }
 
