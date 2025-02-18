@@ -24,12 +24,18 @@ describe("Footer", () => {
     // Links are shown (use # as href as the pages currently don't exist)
     // Logo is shown
     it("renders the footer", () => {
+      // Check current version number
       cy.get("footer").contains(packages.version);
-
-      cy.get("footer").contains("Docs").should("have.attr", "href", "#");
-      cy.get("footer").contains("API").should("have.attr", "href", "#");
-      cy.get("footer").contains("Help").should("have.attr", "href", "#");
-      cy.get("footer").contains("Community").should("have.attr", "href", "#");
+      // Check links
+      cy.get("footer").contains("Docs").should("have.attr", "href", "/#");
+      cy.get("footer").contains("API").should("have.attr", "href", "/#");
+      cy.get("footer").contains("Help").should("have.attr", "href", "/#");
+      cy.get("footer").contains("Community").should("have.attr", "href", "/#");
+      // Check logo
+      cy.get("footer")
+        .find("img")
+        .should("have.attr", "src", "/icons/logo-small.svg");
+      cy.get("footer").find("img").should("have.attr", "alt", "logo");
     });
   });
 });

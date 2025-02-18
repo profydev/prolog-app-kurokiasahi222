@@ -13,6 +13,7 @@
 
   @media (min-width: breakpoint.$desktop) {
     height: misc.$footer-height;
+    width: 100%;
     flex-direction: row;
     padding: 0;
   }
@@ -28,6 +29,7 @@
   gap: space.$s6;
 
   @media (min-width: breakpoint.$desktop) {
+    width: 100%;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
