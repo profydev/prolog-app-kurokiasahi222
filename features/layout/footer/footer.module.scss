@@ -6,24 +6,39 @@
 
 .footer {
   display: flex;
-  height: misc.$footer-height;
-  width: 100%;
   flex-direction: column;
-  justify-content: center;
+  height: 100%;
+  width: 100%;
   background-color: color.$gray-50;
-  border-style: none;
+
+  @media (min-width: breakpoint.$desktop) {
+    height: misc.$footer-height;
+    flex-direction: row;
+  }
 }
 
 .container {
   display: flex;
+  flex-direction: column;
+  width: 100%;
   padding: space.$s0 space.$s8;
   justify-content: space-between;
   align-items: center;
   align-self: stretch;
+
+  @media (min-width: breakpoint.$desktop) {
+    flex-direction: row;
+    padding: space.$s0 space.$s8;
+  }
 }
 
 .versionContainer {
   width: 10rem;
+  order: 3;
+
+  @media (min-width: breakpoint.$desktop) {
+    order: 1;
+  }
 }
 
 .version {
@@ -33,9 +48,14 @@
 
 .list {
   display: flex;
+  order: 1;
   gap: space.$s6;
   justify-content: center;
   align-items: center;
+
+  @media (min-width: breakpoint.$desktop) {
+    order: 2;
+  }
 }
 
 .menuItem {
@@ -47,7 +67,12 @@
 
 .logoContainer {
   display: flex;
+  order: 2;
   width: 10rem;
   flex-direction: column;
   align-items: flex-end;
+
+  @media (min-width: breakpoint.$desktop) {
+    order: 3;
+  }
 }
