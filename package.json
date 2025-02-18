@@ -9,7 +9,7 @@
     "lint:code": "eslint --ignore-path .gitignore .",
     "lint:styles": "stylelint  --ignore-path .gitignore \"**/*.scss\"",
     "check:types": "tsc --noEmit",
-    "prettier": "prettier  --ignore-path .gitignore --check .",
+    "prettier": "prettier  --ignore-path .gitignore --write .",
     "cypress": "cypress open",
     "test": "jest --watch",
     "storybook": "storybook dev -p 6006",
@@ -33,6 +33,9 @@
     "normalize.css": "^8.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "lint-staged": {
+    "**/*.{js,ts,jsx,tsx,md,css,scss,json}": "prettier --write"
   },
   "devDependencies": {
     "@babel/core": "^7.22.10",

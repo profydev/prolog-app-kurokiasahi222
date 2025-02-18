@@ -87,12 +87,25 @@ export function SidebarNavigation() {
             ))}
           </ul>
           <ul className={styles.list}>
-            <MenuItemButton
+            {/* <MenuItemButton
               text="Support"
               iconSrc="/icons/support.svg"
               isCollapsed={isSidebarCollapsed}
-              //  fix in fix-navigation-support-button
+              // !!!!!!!! IMPORTANT !!!!!!!!
+              // Initial fix in fix-navigation-support-button (without watching the video solution)
+              // This works but it's not the best solution
               onClick={() => openMailApp()}
+            /> */}
+            {/* // !!!!!!!! IMPORTANT !!!!!!!!
+             Code fix after watching the video solution. 
+             After Code ajusted to fix the test 
+             */}
+            <MenuItemLink
+              text="Support"
+              iconSrc="/icons/support.svg"
+              isCollapsed={isSidebarCollapsed}
+              isActive={false}
+              href={openMailApp()}
             />
             <MenuItemButton
               text="Collapse"

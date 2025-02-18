@@ -1,4 +1,5 @@
 import { port } from "../e2e/port";
+import openMailApp from "../../features/layout/sidebar-navigation/open-mail-app";
 
 describe("Sidebar Navigation", () => {
   beforeEach(() => {
@@ -9,7 +10,7 @@ describe("Sidebar Navigation", () => {
     beforeEach(() => {
       cy.viewport(1025, 900);
     });
-
+    const mailLink = openMailApp();
     it("links are working", () => {
       // check that each link leads to the correct page
       cy.get("nav")
@@ -31,6 +32,11 @@ describe("Sidebar Navigation", () => {
       cy.get("nav")
         .contains("Settings")
         .should("have.attr", "href", "/dashboard/settings");
+
+      // Adding test cases for Sidebar Navigation: Support button should open the user’s mail app
+      cy.get("nav").contains("Support").should("have.attr", "href", mailLink);
+
+      cy.get("nav").contains("Collapse");
     });
 
     it("is collapsible", () => {
@@ -38,7 +44,10 @@ describe("Sidebar Navigation", () => {
       cy.get("nav").contains("Collapse").click();
 
       // check that links still exist and are functionable
-      cy.get("nav").find("a").should("have.length", 5).eq(1).click();
+      // Fix for the test case: Sidebar Navigation: Support button should open the user’s mail app
+      // Since we change the MenuItemButton to MenuItemLink, a should have length 6
+      cy.get("nav").find("a").should("have.length", 6).eq(1).click();
+      // Yield second 'a' in 'nav' and click it
       cy.url().should("eq", `http://localhost:${port}/dashboard/issues`);
 
       // check that text is not rendered
@@ -82,7 +91,7 @@ describe("Sidebar Navigation", () => {
       isInViewport("nav");
 
       // check that all links are rendered
-      cy.get("nav").find("a").should("have.length", 5);
+      cy.get("nav").find("a").should("have.length", 6);
 
       // Support button should be rendered but Collapse button not
       cy.get("nav").contains("Support").should("exist");
