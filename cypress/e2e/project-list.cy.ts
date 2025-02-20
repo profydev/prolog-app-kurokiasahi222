@@ -1,6 +1,6 @@
 // import capitalize from "lodash/capitalize";
 import mockProjects from "../fixtures/projects.json";
-import { port } from "../e2e/port";
+// import { useGetProjects } from "@features/projects";
 
 describe("Project List", () => {
   beforeEach(() => {
