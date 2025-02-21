@@ -1,4 +1,4 @@
-# Prolog: Erorr Logging Application
+# Prolog: Error Logging Application
 
 This repository is part of the [React Job Simulator](https://profy.dev) where I work on implementing tasks ranging from minor bug fixes to full-feature development based on provided designs.
 Thank you to <a href="https://www.linkedin.com/in/johannes-kettmann-40a049145/?originalSubdomain=de">Johannes Kettmann</a> for creating this awesome course.
