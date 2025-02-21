@@ -8,13 +8,21 @@ describe("Project List", () => {
     // setup request mock
     cy.intercept("GET", "https://prolog-api.profy.dev/project", {
       fixture: "projects.json",
-    }).as("getProjects");
+    });
 
     // open projects page
     cy.visit(`http://localhost:${port}/dashboard`);
+  });
 
-    // wait for request to resolve
-    cy.wait("@getProjects");
+  // Solution 9: Add loading screen to project list
+  // Added after watching the solution video, since I was not sure how to create tests for this feature
+  it("renders a loading screen", () => {
+    // check that the loading screen is rendered
+    // data-* is a html attribute that is used to store custom data private to the page or application
+    cy.get("[data-testid='loading-indicator']").should("be.visible");
+    // Check that the loading screen is not visible after the projects are loaded
+    cy.get("[data-testid='project-list']").should("be.visible");
+    cy.get("[data-testid='loading-i  ndicator']").should("not.exist");
   });
 
   context("desktop resolution", () => {
