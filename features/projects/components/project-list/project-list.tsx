@@ -1,12 +1,24 @@
 import { ProjectCard } from "../project-card";
 import { useGetProjects } from "../../api/use-get-projects";
 import styles from "./project-list.module.scss";
+import loadingCircle from "../../../../public/icons/loading-circle.svg";
+import Image from "next/image";
 
 export function ProjectList() {
   const { data, isLoading, isError, error } = useGetProjects();
 
   if (isLoading) {
-    return <div>Loading</div>;
+    return (
+      <div className={styles.loading}>
+        <Image
+          className={styles.spin}
+          src={loadingCircle.src}
+          alt="loading"
+          width={64}
+          height={64}
+        />
+      </div>
+    );
   }
 
   if (isError) {
