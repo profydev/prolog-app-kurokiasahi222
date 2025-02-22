@@ -21,19 +21,31 @@ describe("Issue List", () => {
 
     // open issues page
     cy.visit(`http://localhost:${port}/dashboard/issues`);
+    // // set button aliases
+    // cy.get("button").contains("Previous").as("prev-button");
+    // cy.get("button").contains("Next").as("next-button");
+    // Move the button aliases because it will cause the loading-indicator to be gone
+    // loading-indicator is used to check if the page is still loading
+    // Button only appear after the page is loaded
+  });
 
-    // wait for request to resolve
-    cy.wait(["@getProjects", "@getIssuesPage1"]);
-    cy.wait(500);
-
-    // set button aliases
-    cy.get("button").contains("Previous").as("prev-button");
-    cy.get("button").contains("Next").as("next-button");
+  // Solution 9: Add loading screen to project list
+  // Added after watching the solution video, since I was not sure how to create tests for this feature
+  it("renders a loading screen", () => {
+    // check that the loading screen is rendered
+    // data-* is a html attribute that is used to store custom data private to the page or application
+    cy.get("[data-testid='loading-indicator']").should("be.visible");
+    // Check that the loading screen is not visible after the projects are loaded
+    cy.get("[data-testid='issue-list']").should("be.visible");
+    cy.get("[data-testid='loading-indicator']").should("not.exist");
   });
 
   context("desktop resolution", () => {
     beforeEach(() => {
       cy.viewport(1025, 900);
+      // set button aliases
+      cy.get("button").contains("Previous").as("prev-button");
+      cy.get("button").contains("Next").as("next-button");
     });
 
     it("renders the issues", () => {
@@ -79,10 +91,9 @@ describe("Issue List", () => {
     it("persists page after reload", () => {
       cy.get("@next-button").click();
       cy.contains("Page 2 of 3");
-
       cy.reload();
-      cy.wait(["@getProjects", "@getIssuesPage2"]);
-      cy.wait(1500);
+      cy.get("[data-testid='loading-indicator']").should("be.visible");
+      cy.get("[data-testid='loading-indicator']").should("not.exist");
       cy.contains("Page 2 of 3");
     });
   });
