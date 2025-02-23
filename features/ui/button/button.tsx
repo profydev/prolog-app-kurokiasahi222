@@ -26,17 +26,18 @@ export enum ButtonState {
   disabled = "disabled",
 }
 
-// export enum ButtonIcon {
-//   leading = "leading",
-//   trailing = "trailing",
-//   only = "only",
-// }
+export enum ButtonIcon {
+  leading = "leading",
+  trailing = "trailing",
+  only = "only",
+}
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   children: React.ReactNode;
   size?: ButtonSize;
   color?: ButtonColor;
   state?: ButtonState;
+  icon?: ButtonIcon;
 };
 
 export function Button({
