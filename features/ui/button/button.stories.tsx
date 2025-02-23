@@ -1,30 +1,30 @@
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
-import { Button, ButtonSize, ButtonColor, ButtonState } from "./button";
-
+import {
+  Button,
+  ButtonSize,
+  ButtonColor,
+  ButtonState,
+  ButtonIcon,
+} from "./button";
 export default {
   title: "UI/Button",
   component: Button,
   tags: ["autodocs"],
   parameters: {
-    // More on Story layout: https://storybook.js.org/docs/react/configure/story-layout
     layout: "fullscreen",
+    // More on Story layout: https://storybook.js.org/docs/react/configure/story-layout
   },
 } as Meta<typeof Button>;
 
-const Template: StoryFn<typeof Button> = ({ size, color, state, children }) => (
-  <div style={{ padding: 50 }}>
-    <Button color={color} size={size} state={state}>
-      {children}
-    </Button>
-  </div>
-);
+const Template: StoryFn<typeof Button> = (args) => <Button {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
   size: ButtonSize.sm,
-  color: ButtonColor.primary,
   state: ButtonState.default,
+  buttonColor: ButtonColor.primary,
+  icon: ButtonIcon.default,
   children: "Button CTA",
 };
 Default.parameters = {
