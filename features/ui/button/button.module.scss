@@ -3,32 +3,38 @@
 @use "@styles/space";
 
 .container {
-  width: fit-content;
   display: flex;
+  justify-self: center;
   align-items: center;
+  gap: space.$s2;
   border-radius: space.$s2;
 
+  // 0 margin for p tag
+  & p {
+    margin: 0;
+  }
+
   &.sm {
-    padding: space.$s0 0.875rem;
-    height: 2.25rem;
+    padding: space.$s2 0.875rem;
+    max-height: space.$s9;
     font: font.$text-sm-medium;
   }
 
   &.md {
-    padding: space.$s0 space.$s4;
-    height: 2.5rem;
+    padding: 0.625rem space.$s4;
+    max-height: space.$s10;
     font: font.$text-sm-medium;
   }
 
   &.lg {
-    padding: space.$s0 1.125rem;
-    height: 2.75rem;
+    padding: 0.625rem 1.125rem;
+    max-height: space.$s11;
     font: font.$text-md-medium;
   }
 
   &.xl {
-    padding: space.$s0 space.$s5;
-    height: 3rem;
+    padding: space.$s3 space.$s5;
+    max-height: space.$s12;
     font: font.$text-md-medium;
   }
 
@@ -154,6 +160,44 @@
 
     &.disabled {
       color: color.$error-300;
+    }
+  }
+
+  &.default {
+    .icon {
+      display: none;
+    }
+
+    .text {
+      display: block;
+    }
+  }
+
+  &.leading {
+    .icon {
+      display: block;
+    }
+  }
+
+  &.trailing {
+    .icon {
+      display: block;
+      order: 2;
+    }
+
+    .text {
+      display: block;
+      order: 1;
+    }
+  }
+
+  &.only {
+    .icon {
+      display: block;
+    }
+
+    .text {
+      display: none;
     }
   }
 }

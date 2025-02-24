@@ -25,8 +25,35 @@ Default.args = {
   state: ButtonState.default,
   buttonColor: ButtonColor.primary,
   icon: ButtonIcon.default,
-  children: "Button CTA",
 };
 Default.parameters = {
   viewMode: "docs",
+};
+
+export const Small = {
+  args: {
+    ...Default,
+    size: ButtonSize.sm,
+  },
+};
+
+export const Medium = {
+  args: {
+    ...Default,
+    size: ButtonSize.md,
+  },
+};
+
+export const Large = {
+  args: {
+    ...Default,
+    size: ButtonSize.lg,
+  },
+};
+
+export const XLarge = {
+  args: {
+    ...Default,
+    size: ButtonSize.xl,
+  },
 };

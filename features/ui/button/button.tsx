@@ -2,6 +2,7 @@ import { ButtonHTMLAttributes } from "react";
 import classNames from "classnames";
 import styles from "./button.module.scss";
 import { UnstyledButton } from "./unstyled-button";
+import Image from "next/image";
 
 export enum ButtonSize {
   sm = "sm",
@@ -43,7 +44,6 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 
 export function Button({
-  children,
   size = ButtonSize.md,
   buttonColor = ButtonColor.primary,
   state = ButtonState.default,
@@ -63,7 +63,14 @@ export function Button({
       onClick={onClick}
       {...rest}
     >
-      {children}
+      <Image
+        className={styles.icon}
+        src="/icons/circle.svg"
+        alt="Circle Icon"
+        width={20}
+        height={20}
+      />
+      <p className={styles.text}>Button CTA</p>
     </UnstyledButton>
   );
 }
