@@ -1,5 +1,5 @@
 import styles from "./footer.module.scss";
-import { Button } from "@features/ui";
+import { UnstyledButton } from "@features/ui";
 // import packages from "package.json";
 // Solution 8: Above line is replaced with the {process.env} after watching the solution video for Footer: task 8
 import Link from "next/link";
@@ -21,11 +21,11 @@ export function Footer() {
         </div>
         <div className={styles.list}>
           {menuItems.map((item) => (
-            <Button key={item.text}>
+            <UnstyledButton key={item.text}>
               <Link href={item.href} className={styles.menuItem}>
                 {item.text}
               </Link>
-            </Button>
+            </UnstyledButton>
           ))}
         </div>
         <div className={styles.logoContainer}>

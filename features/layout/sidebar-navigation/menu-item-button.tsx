@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "@features/ui";
+import { UnstyledButton } from "@features/ui";
 import classNames from "classnames";
 import styles from "./menu-item-link.module.scss";
 
@@ -20,7 +20,7 @@ export function MenuItemButton({
 }: MenuItemProps) {
   return (
     <li className={classNames(styles.listItem, className)}>
-      <Button className={styles.anchor} onClick={onClick}>
+      <UnstyledButton className={styles.anchor} onClick={onClick}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         {!isCollapsed ? (
           <img className={styles.icon} src={iconSrc} alt={`${text} icon`} />
@@ -32,7 +32,7 @@ export function MenuItemButton({
           />
         )}{" "}
         {!isCollapsed && text}{" "}
-      </Button>
+      </UnstyledButton>
     </li>
   );
 }
