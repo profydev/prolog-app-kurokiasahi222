@@ -3,6 +3,10 @@
 @use "@styles/space";
 @use "@styles/shadow";
 
+.icon {
+  height: 100%;
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -17,26 +21,30 @@
 
   &.sm {
     padding: space.$s2 0.875rem;
-    max-height: space.$s9;
+    height: space.$s9;
     font: font.$text-sm-medium;
   }
 
   &.md {
     padding: 0.625rem space.$s4;
-    max-height: space.$s10;
+    height: space.$s10;
     font: font.$text-sm-medium;
   }
 
   &.lg {
     padding: 0.625rem 1.125rem;
-    max-height: space.$s11;
+    height: space.$s11;
     font: font.$text-md-medium;
   }
 
   &.xl {
     padding: space.$s3 space.$s5;
-    max-height: space.$s12;
+    height: space.$s12;
     font: font.$text-md-medium;
+  }
+
+  &.iconOnly {
+    padding: space.$s2;
   }
 
   &.primary {
@@ -45,19 +53,19 @@
     color: color.$white;
     box-shadow: shadow.$xs;
 
-    &.hover {
+    &:hover {
       border: 1px solid color.$primary-700;
       background: color.$primary-700;
     }
 
-    &.focused {
+    &:focus {
       /* Shadow/xs focused 4px primary-100 */
       box-shadow:
         shadow.$xs,
         0 0 0 4px #f4ebff;
     }
 
-    &.disabled {
+    &:disabled {
       border: 1px solid color.$primary-200;
       background: color.$primary-200;
     }
@@ -69,12 +77,12 @@
     color: color.$primary-700;
     box-shadow: shadow.$xs;
 
-    &.hover {
+    &:hover {
       border: 1px solid color.$primary-100;
       background: color.$primary-100;
     }
 
-    &.focused {
+    &:focus {
       border: 1px solid color.$primary-50;
       background: color.$primary-50;
 
@@ -84,7 +92,7 @@
         0 0 0 4px #f4ebff;
     }
 
-    &.disabled {
+    &:disabled {
       border: 1px solid color.$primary-25;
       background: color.$primary-25;
       color: color.$primary-300;
@@ -97,19 +105,19 @@
     background: color.$white;
     box-shadow: shadow.$xs;
 
-    &.hover {
+    &:hover {
       background: color.$gray-50;
       color: color.$gray-800;
     }
 
-    &.focused {
+    &:focus {
       /* Shadow/xs focused 4px grey-100 */
       box-shadow:
         shadow.$xs,
         0 0 0 4px #f2f4f7;
     }
 
-    &.disabled {
+    &:disabled {
       color: color.$gray-300;
       border: 1px solid color.$gray-200;
     }
@@ -118,12 +126,12 @@
   &.empty {
     color: color.$primary-700;
 
-    &.hover {
+    &:hover {
       background: color.$primary-50;
     }
 
     // No focus: same as default
-    &.disabled {
+    &:disabled {
       color: color.$gray-300;
     }
   }
@@ -131,13 +139,13 @@
   &.empty-gray {
     color: color.$gray-500;
 
-    &.hover {
+    &:hover {
       color: color.$gray-600;
       background: color.$gray-50;
     }
 
     // No focus: same as default
-    &.disabled {
+    &:disabled {
       color: color.$gray-300;
     }
   }
@@ -148,19 +156,19 @@
     background: color.$error-600;
     box-shadow: shadow.$xs;
 
-    &.hover {
+    &:hover {
       border: 1px solid color.$error-700;
       background: color.$error-700;
     }
 
-    &.focused {
+    &:focus {
       /* Shadow/xs focused 4px error-100 */
       box-shadow:
         shadow.$xs,
         0 0 0 4px #fee4e2;
     }
 
-    &.disabled {
+    &:disabled {
       border: 1px solid color.$error-200;
       background: color.$error-200;
     }
@@ -169,51 +177,13 @@
   &.empty-error {
     color: color.$error-700;
 
-    &.hover {
+    &:hover {
       background: color.$error-50;
     }
 
     // No focus: same as default
-    &.disabled {
+    &:disabled {
       color: color.$error-300;
-    }
-  }
-
-  &.default {
-    .icon {
-      display: none;
-    }
-
-    .text {
-      display: block;
-    }
-  }
-
-  &.leading {
-    .icon {
-      display: block;
-    }
-  }
-
-  &.trailing {
-    .icon {
-      display: block;
-      order: 2;
-    }
-
-    .text {
-      display: block;
-      order: 1;
-    }
-  }
-
-  &.only {
-    .icon {
-      display: block;
-    }
-
-    .text {
-      display: none;
     }
   }
 }
