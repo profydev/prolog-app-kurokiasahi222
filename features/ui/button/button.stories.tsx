@@ -12,8 +12,8 @@ export default {
   component: Button,
   tags: ["autodocs"],
   parameters: {
-    layout: "fullscreen",
-    // More on Story layout: https://storybook.js.org/docs/react/configure/story-layout
+    layout: "centered",
+    // More on Story layout: https://storybook.js.org/docs/reac  t/configure/story-layout
   },
 } as Meta<typeof Button>;
 
@@ -28,6 +28,7 @@ Default.args = {
 };
 Default.parameters = {
   viewMode: "docs",
+  layout: "centered",
 };
 
 export const Small = {

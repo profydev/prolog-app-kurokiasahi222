@@ -44,12 +44,12 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 
 export function Button({
+  className,
   size = ButtonSize.md,
   buttonColor = ButtonColor.primary,
   state = ButtonState.default,
   icon = ButtonIcon.default,
-  onClick,
-  ...rest
+  ...props
 }: ButtonProps) {
   return (
     <UnstyledButton
@@ -59,9 +59,9 @@ export function Button({
         styles[buttonColor],
         styles[state],
         styles[icon],
+        className,
       )}
-      onClick={onClick}
-      {...rest}
+      {...props}
     >
       <Image
         className={styles.icon}
