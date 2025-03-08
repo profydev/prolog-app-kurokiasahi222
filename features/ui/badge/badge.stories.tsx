@@ -28,4 +28,5 @@ Default.args = {
 };
 Default.parameters = {
   viewMode: "docs",
+  layout: "centered",
 };

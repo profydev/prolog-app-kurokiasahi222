@@ -1,6 +1,7 @@
 import { ButtonHTMLAttributes } from "react";
 import classNames from "classnames";
 import styles from "./button.module.scss";
+import { UnstyledButton } from "./unstyled-button";
 
 export enum ButtonSize {
   sm = "sm",
@@ -21,54 +22,36 @@ export enum ButtonColor {
 
 export enum ButtonState {
   default = "default",
-  hover = "hover",
-  focused = "focused",
-  disabled = "disabled",
+  // iconOnly = "iconOnly",
 }
-
-// export enum ButtonIcon {
-//   leading = "leading",
-//   trailing = "trailing",
-//   only = "only",
-// }
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   children: React.ReactNode;
-  size?: ButtonSize;
-  color?: ButtonColor;
-  state?: ButtonState;
+  size: ButtonSize;
+  buttonColor: ButtonColor;
+  state: ButtonState;
+  icon?: boolean;
 };
 
 export function Button({
-  children,
-  size = ButtonSize.md,
-  color = ButtonColor.primary,
-  state = ButtonState.default,
   className,
-  onClick,
-  disabled,
-  ...rest
+  size = ButtonSize.md,
+  buttonColor = ButtonColor.primary,
+  state = ButtonState.default,
+  icon = false,
+  ...props
 }: ButtonProps) {
   return (
-    <button
+    <UnstyledButton
       className={classNames(
-        styles.button,
+        styles.container,
         styles[size],
-        styles[color],
+        styles[buttonColor],
         styles[state],
+        icon ? styles.iconOnly : "",
         className,
       )}
-      disabled={disabled}
-      onClick={onClick}
-      {...rest}
-    >
-      {children}
-    </button>
+      {...props}
+    />
   );
 }
-
-// export function Button(props: ButtonHTMLAttributes<HTMLButtonElement>) {
-//   return (
-//     <button {...props} className={classNames(styles.button, props.className)} />
-//   );
-// }
