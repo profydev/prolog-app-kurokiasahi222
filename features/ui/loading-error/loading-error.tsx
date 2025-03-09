@@ -13,7 +13,7 @@ import arrowRight from "../../../public/icons/arrow-right.svg";
 
 export function LoadingError({ refetch }: { readonly refetch: () => void }) {
   return (
-    <div className={styles.loadingErrorContainer}>
+    <div className={styles.loadingErrorContainer} data-testid="loading-error">
       <div className={styles.contentContainer}>
         <Image src={alertCircle} alt="alert" width={20} height={20} />
         <p className={styles.message}>
