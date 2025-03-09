@@ -1,4 +1,5 @@
 // Task 10: Add error screen to project list
+import Image from "next/image";
 import styles from "./loading-error.module.scss";
 import {
   Button,
@@ -7,11 +8,10 @@ import {
   ButtonIcon,
   ButtonState,
 } from "@features/ui/";
-import Image from "next/image";
 import alertCircle from "../../../public/icons/alert-circle.svg";
 import arrowRight from "../../../public/icons/arrow-right.svg";
 
-export function LoadingError() {
+export function LoadingError({ refetch }: { readonly refetch: () => void }) {
   return (
     <div className={styles.loadingErrorContainer}>
       <div className={styles.contentContainer}>
@@ -24,6 +24,9 @@ export function LoadingError() {
           buttonColor={ButtonColor.emptyError}
           state={ButtonState.default}
           className={styles.button}
+          onClick={() => {
+            refetch();
+          }}
         >
           <p className={styles.buttonMessage}>Try again</p>
           <ButtonIcon src={arrowRight} />

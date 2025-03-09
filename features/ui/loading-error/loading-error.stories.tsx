@@ -12,7 +12,9 @@ export default {
   },
 } as Meta<typeof LoadingError>;
 
-const Template: StoryFn<typeof LoadingError> = () => <LoadingError />;
+const Template: StoryFn<typeof LoadingError> = (args) => (
+  <LoadingError {...args} />
+);
 
 export const Default = Template.bind({});
 Default.parameters = {
