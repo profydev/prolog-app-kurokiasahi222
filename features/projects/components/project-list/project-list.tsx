@@ -1,20 +1,18 @@
 import { ProjectCard } from "../project-card";
 import { useGetProjects } from "../../api/use-get-projects";
 import styles from "./project-list.module.scss";
-import { LoadingIndicator } from "@features/ui";
+import { LoadingIndicator, LoadingError } from "@features/ui";
 
 export function ProjectList() {
-  const { data, isLoading, isError, error } = useGetProjects();
+  const { data, isLoading, isError, refetch } = useGetProjects();
 
   if (isLoading) {
     return <LoadingIndicator />;
   }
 
   if (isError) {
-    console.error(error);
-    return <div>Error: {error.message}</div>;
+    return <LoadingError refetch={refetch} />;
   }
-
   return (
     <ul className={styles.list} data-testid="project-list">
       {data?.map((project) => (

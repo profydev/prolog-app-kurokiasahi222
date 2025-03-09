@@ -1,0 +1,37 @@
+@use "@styles/breakpoint";
+@use "@styles/color";
+@use "@styles/space";
+@use "@styles/font";
+
+.loadingErrorContainer {
+  border-radius: space.$s2; // 0.5rem
+  border: 1px solid color.$error-300;
+  background: color.$error-25;
+}
+
+.contentContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  gap: space.$s3; // 0.75rem
+  padding: space.$s4; // 1rem
+}
+
+.message {
+  margin: 0;
+  padding: 0;
+  color: color.$error-700;
+  font: font.$text-sm-medium;
+  flex-grow: 1; // Allows message to grow while button remains fixed
+}
+
+.buttonMessage {
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.button {
+  //   padding: 0 !important;
+}
